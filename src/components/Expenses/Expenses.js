@@ -1,10 +1,16 @@
 import './Expenses.css'
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
+import ExpensesFilter from './ExpensesFilter';
 
 
 function Expenses(props){
-   return <Card className='expenses'>
+  const ononFilterSelectedHandler = (value)=>{
+    console.log(value);
+  }
+   return <div>
+   <Card className='expenses'>
+   <ExpensesFilter onFilterSelected={ononFilterSelectedHandler}/>
      <ul >
           {props.items.map((item)=><li>
 {           <ExpenseItem 
@@ -14,6 +20,7 @@ function Expenses(props){
            </li>)}
     </ul> 
     </Card>
+    </div>
 }
 
 export default Expenses ;
